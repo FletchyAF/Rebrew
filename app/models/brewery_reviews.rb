@@ -1,0 +1,3 @@
+class BreweryReview < ApplicationRecord
+
+end
