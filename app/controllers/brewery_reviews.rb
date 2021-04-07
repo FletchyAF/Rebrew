@@ -3,15 +3,15 @@ class BreweryReviews < ApplicationController
     layout "application"
 
     def index
-
+        @breweryReviews = BreweryReview.all
     end
 
     def show
-
+        @breweryReview = BreweryReview.find_by(id: params[])
     end
 
     def new
-
+        @breweryReview = BreweryReview.new(brewery_review_params)
     end
 
     def create

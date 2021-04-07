@@ -11,11 +11,11 @@ class BreweriesController < ApplicationController
     end
 
     def new
-        @brewery = Brewery.new(brewery params)
+        @brewery = Brewery.new(brewery_params)
       end
     
     def create
-        @brewery = Brewery.new(brewery params)
+        @brewery = Brewery.new(brewery_params)
         if @brewery.save
             redirect_to brewery_path(@brewery)
         else

@@ -1,0 +1,12 @@
+<h1><%=@breweryReview.name%></h1>
+<br><br>
+
+<% @breweryReview.each do |f| %>
+    <%= f.review %>
+
+<br>
+<br>
+
+<%= link_to "All Brewery Reviews", brewery_reviews_path %>
+<br>
+<%= link_to "This Brewery", breweries_path(@breweryReview.name) %>

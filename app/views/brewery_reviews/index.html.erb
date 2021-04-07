@@ -1,0 +1,7 @@
+<h1>All Brewery Reviews</h1>
+
+<%@breweryReviews.each do |review|%>
+    <li>
+        <%=link_to(review.name, brewery_reviews_path(review))%>
+    </li>
+<%end%>
