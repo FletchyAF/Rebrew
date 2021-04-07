@@ -9,7 +9,7 @@
     <%=link_to "All Breweries", breweries_path %>
     <%=link_to "New Brewery", new_brewery_path %>
     <%=link_to "New Brewery Review", new_brewery_review_path %>
-    <=%link_to "All Brewery Reviews", brewery_reviews_path %>
+    <%=link_to "All Brewery Reviews", brewery_reviews_path %>
     <%=link_to "My Brewery Reviews", user_brewery_reviews_path(current_user) %>
     <%= button_to "Log Out", logout_path, method: :post %>
     <%else%>
