@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to breweries_path
       else
-        redirect_to signup_path
+        redirect_to '/signup'
       end
     end
   
@@ -33,12 +33,5 @@ class SessionsController < ApplicationController
       session.clear
       redirect_to '/signup'
     end
-  
-    private
-  
-    def google_auth
-      
-    end
-  
   
   end

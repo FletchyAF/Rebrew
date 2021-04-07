@@ -7,7 +7,7 @@ class BreweryReviews < ApplicationController
     end
 
     def show
-        @breweryReview = BreweryReview.find_by(id: params[])
+        @breweryReview = BreweryReview.find_by(id: params[brewery_reviews.id])
     end
 
     def new
