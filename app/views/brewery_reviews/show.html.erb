@@ -1,8 +1,7 @@
-<h1><%=@breweryReview.name%></h1>
+<h1><%=@breweryReview.title%></h1>
 <br><br>
 
-<% @breweryReview.each do |f| %>
-    <%= f.review %>
+<%= @breweryReview.content %>
 
 <br>
 <br>

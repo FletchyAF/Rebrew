@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :users, only: [:new] do
-      resources( :brewery_reviews) 
+  resources :users do
+      resources(:brewery_reviews) 
   end
 
   resources :breweries, only:[:index, :new, :show, :create] do
@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   get '/login', to: "sessions#new", as: "login"
   post '/login', to: "sessions#create"
   post '/logout', to: "sessions#destroy"
-
+  post '/users/:user_id/brewery_reviews/new', to: "brewery_reviews#create"
 end
