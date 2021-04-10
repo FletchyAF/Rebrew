@@ -7,11 +7,11 @@ class BreweriesController < ApplicationController
     end
 
     def show
-        @brewery = Brewery.find_by(id: params[:brewery_id])
+        @brewery = Brewery.find(params[:id])
     end
 
     def new
-        @brewery = Brewery.new(brewery_params)
+        @brewery = Brewery.new
       end
     
     def create
@@ -21,5 +21,18 @@ class BreweriesController < ApplicationController
         else
           render :new
         end
+      end
+
+      def edit
+      end
+
+      def update
+
+      end
+
+      private
+
+      def brewery_params
+        params.require(:brewery).permit(:name)
       end
 end

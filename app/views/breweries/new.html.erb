@@ -1,8 +1,8 @@
-<%=render(partial: "application/errors", locals: {errors: @breweries.errors.full_messages})%>
-
-<%=form_with(model: @brewery, builder: CustomFormBuilder) do |f|%>
+<%=render(partial: "application/errors", locals: {errors: @brewery.errors.full_messages})%>
+<br><br><br>
+<%=form_for @brewery do |f|%>
     <%=f.label("Brewery Name:") %>
     <%=f.text_field(:name) %>
-    <%end%>
+    
     <%=f.submit "Submit"%>
   <%end%>

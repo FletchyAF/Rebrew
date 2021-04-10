@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources( :brewery_reviews) 
   end
 
-  resources :breweries, only:[:index, :new, :show] do
+  resources :breweries, only:[:index, :new, :show, :create] do
       resources( :brewery_reviews)
   end
   

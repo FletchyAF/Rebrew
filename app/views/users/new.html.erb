@@ -6,9 +6,10 @@
   <%=f.label "Username"%>
   <%=f.text_field :username%>
   <%=f.label "Password"%>
-  <%=f.password_field :password %>
+  <%=f.password_field :password_digest %>
   <%=f.label "Password Confirmation"%>
   <%=f.password_field :password_confirmation %>
   <%=f.submit "Sign Up"%>
 <%end%>
+
 <%=link_to "Sign Up With Google", '/auth/google'%>

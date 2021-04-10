@@ -1,8 +1,9 @@
+<br><br><br>
 <%=form_for :brewery_reviews do |f|%>
     <%=f.label("Brewery Review Name:") %>
-    <%=f.text_field(:name) %>
+    <%=f.text_field(:name) %><br>
     <%=f.label("Review Content:") %>
     <%=f.text_field(:review)
-    <%end%>
+    <br>
     <%=f.submit "Submit"%>
   <%end%>
