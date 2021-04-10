@@ -1,4 +1,4 @@
-<%=form_with(model: @breweryReview, builder: CustomFormBuilder) do |f|%>
+<%=form_for :brewery_reviews do |f|%>
     <%=f.label("Brewery Review Name:") %>
     <%=f.text_field(:name) %>
     <%=f.label("Review Content:") %>

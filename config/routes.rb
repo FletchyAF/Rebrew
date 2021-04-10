@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
   resources :users, only: [:new] do
-      resources( :brewery_reviews, except: [:index]) 
+      resources( :brewery_reviews) 
   end
 
   resources :breweries, only:[:index, :new, :show] do
-      resources( :brewery_reviews, except: [:index])
+      resources( :brewery_reviews)
   end
   
-  resources :brewery_reviews, only: [:edit, :index, :new, :show, :update]
+  resources :brewery_reviews
 
   get '/signup', to: "users#new", as: "signup"
   post '/signup', to: "users#create"
