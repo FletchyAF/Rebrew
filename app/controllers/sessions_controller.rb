@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
     def new
-      errors = []
+      @errors = []
       # @user = User.new
     end
   
@@ -11,9 +11,11 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to breweries_path
       elsif @user
+        @errors = ["Invalid Password"]
         render :new
       else
-        redirect_to '/signup'
+        @errors = ["Invalid Username"]
+        render :new
       end
     end
   

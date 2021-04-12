@@ -1,5 +1,8 @@
 <h1><%=@brewery.name%></h1>
 <br><br>
+ <% @brewery.brewery_reviews do |r| %>
+   <%= link_to r.title, brewery_review_path(r) %> 
+<%end%>
 
-<br><br>
-<%=link_to "Leave Review", new_user_brewery_review_path(@brewery) %>
+<%=link_to "Leave Review", new_brewery_brewery_review_path(@brewery) %><br><br>
+
