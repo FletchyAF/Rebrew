@@ -36,7 +36,8 @@ class BreweryReviewsController < ApplicationController
     end
 
     def update
-        if @breweryReview = BreweryReview.update(brewery_review_params)
+        @breweryReview = BreweryReview.find(params[:id])
+        if @breweryReview.update(brewery_review_params)
             redirect_to brewery_review_path(@breweryReview)
         else
           redirect_to new_brewery_brewery_review_path

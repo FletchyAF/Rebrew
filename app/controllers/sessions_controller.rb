@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
 
     def new
       @errors = []
-      # @user = User.new
     end
   
     def create
