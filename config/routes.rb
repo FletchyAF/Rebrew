@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   post '/logout', to: "sessions#destroy"
   # post '/users/:user_id/brewery_reviews/new', to: "brewery_reviews#create"
+  patch '/breweries/:brewery_id/brewery_reviews', to: "brewery_reviews#update"
 end

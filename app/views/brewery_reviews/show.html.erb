@@ -1,11 +1,10 @@
 <h1><%=@breweryReview.title%></h1>
-<br><br>
 
-<%= @breweryReview.content %>
+<%= @breweryReview.content %><br>
 
 <br>
+<%= link_to "This Brewery", brewery_path(@breweryReview.brewery.id) %>
 <br>
-
-<%= link_to "All Brewery Reviews", brewery_reviews_path %>
-<br>
-<%= link_to "This Brewery", breweries_path(@breweryReview.title) %>
+<%= link_to "Edit Review", edit_brewery_brewery_review_path(@breweryReview.brewery_id) %>
+<br> 
+<%= link_to "Delete Review", brewery_reviews_path(@breweryReview) %>

@@ -13,7 +13,6 @@
   <%if current_user %>
     <br>
     <%= link_to "All Breweries", breweries_path %>
-    <%= link_to "All Reviews", brewery_reviews_path %>
     <%= button_to "Logout", logout_path, method: :post %>
 
   <%else%>

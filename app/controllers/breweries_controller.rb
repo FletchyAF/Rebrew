@@ -7,7 +7,8 @@ class BreweriesController < ApplicationController
     end
 
     def show
-        @brewery = Brewery.find(params[:id])
+    
+        @brewery = Brewery.find(params[:id])    
     end
 
     def new

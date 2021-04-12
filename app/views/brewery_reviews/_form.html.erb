@@ -1,5 +1,5 @@
 <br><br><br>
-<%=form_for @breweryReview, url: brewery_brewery_reviews_path(@brewery) do |f|%>
+<%=form_for @breweryReview, url: brewery_brewery_reviews_path do |f|%>
     <%=f.label("Brewery Review Title:") %>
     <%=f.text_field :title %><br>
     <%=f.label("Review Content:") %><br>
