@@ -5,6 +5,6 @@
 <br>
 <%= link_to "This Brewery", brewery_path(@breweryReview.brewery.id) %>
 <br>
-<%= link_to "Edit Review", edit_brewery_brewery_review_path(@breweryReview.brewery_id) %>
+<%= link_to "Edit Review", edit_brewery_brewery_review_path(@breweryReview.brewery.id, @breweryReview.id) %>
 <br> 
-<%= link_to "Delete Review", brewery_reviews_path(@breweryReview) %>
+<%= button_to "Delete Review", @breweryReview, method: :delete, data: { confirm: "Really?" } %>

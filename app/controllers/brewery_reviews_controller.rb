@@ -37,7 +37,7 @@ class BreweryReviewsController < ApplicationController
 
     def update
         @breweryReview = BreweryReview.find(params[:id])
-        if @breweryReview.update(brewery_review_params)
+        if @breweryReview.update_attributes(brewery_review_params)
             redirect_to brewery_review_path(@breweryReview)
         else
           redirect_to new_brewery_brewery_review_path
@@ -45,7 +45,7 @@ class BreweryReviewsController < ApplicationController
     end
 
     def destroy
-        BreweryReview.find(params[:id]).delete
+        BreweryReview.find(params[:id]).destroy
         redirect_to breweries_path
     end
     
