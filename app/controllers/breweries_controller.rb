@@ -1,5 +1,6 @@
 class BreweriesController < ApplicationController
     before_action :require_login
+    helper_method :current_user
     layout "application"
 
     def index
@@ -7,13 +8,12 @@ class BreweriesController < ApplicationController
     end
 
     def show
-    
-        @brewery = Brewery.find(params[:id])    
+      @brewery = Brewery.find(params[:id])    
     end
 
     def new
-        @brewery = Brewery.new
-      end
+      @brewery = Brewery.new
+    end
     
     def create
         @brewery = Brewery.new(brewery_params)
@@ -24,12 +24,14 @@ class BreweriesController < ApplicationController
         end
       end
 
-      def edit
+      def edit 
       end
 
-      def update
-
-      end
+      def destroy
+        if current_user == 
+          Brewery.find(params[:id]).destroy
+          redirect_to breweries_path
+    end
 
       private
 

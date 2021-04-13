@@ -5,4 +5,5 @@
 <%end%>
 
 <br><br><%=link_to "Leave Review", new_brewery_brewery_review_path(@brewery) %>
+<br><%= button_to "Delete Brewery", @brewery, method: :delete, data: { confirm: "Really?" } %>
 

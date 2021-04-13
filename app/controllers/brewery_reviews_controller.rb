@@ -22,12 +22,12 @@ class BreweryReviewsController < ApplicationController
         if @breweryReview.save
             redirect_to brewery_review_path(@breweryReview)
         else
-          redirect_to new_brewery_brewery_review_path
+            redirect_to new_brewery_brewery_review_path
         end
     end
 
     def edit
-        @breweryReview = BreweryReview.find(params[:id])
+        @breweryReview = BreweryReview.find_by(id: params[:id])
         if current_user == @breweryReview.user
             render :edit
         else
@@ -36,17 +36,23 @@ class BreweryReviewsController < ApplicationController
     end
 
     def update
-        @breweryReview = BreweryReview.find(params[:id])
-        if @breweryReview.update_attributes(brewery_review_params)
+        @breweryReview = BreweryReview.find_by(id: params[:id])
+        binding.pry
+        if @breweryReview.update(brewery_review_params)
             redirect_to brewery_review_path(@breweryReview)
         else
-          redirect_to new_brewery_brewery_review_path
+          render :edit
         end
     end
 
     def destroy
-        BreweryReview.find(params[:id]).destroy
-        redirect_to breweries_path
+       @breweryReview = BreweryReview.find(params[:id])
+        if current_user == @breweryReview.user
+            BreweryReview.find(params[:id]).destroy
+            redirect_to breweries_path
+        else
+            render :show
+        end
     end
     
     private
