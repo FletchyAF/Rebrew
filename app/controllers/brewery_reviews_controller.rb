@@ -36,8 +36,7 @@ class BreweryReviewsController < ApplicationController
     end
 
     def update
-        @breweryReview = BreweryReview.find_by(id: params[:id])
-        binding.pry
+        @breweryReview = BreweryReview.find(params['brewery_review'][:id])
         if @breweryReview.update(brewery_review_params)
             redirect_to brewery_review_path(@breweryReview)
         else
@@ -58,7 +57,7 @@ class BreweryReviewsController < ApplicationController
     private
 
     def brewery_review_params
-        params.require(:brewery_review).permit(:title, :content)
+        params.require(:brewery_review).permit(:title, :content, :id)
     end
 
 end

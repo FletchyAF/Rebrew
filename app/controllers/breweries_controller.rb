@@ -27,12 +27,6 @@ class BreweriesController < ApplicationController
       def edit 
       end
 
-      def destroy
-        if current_user == 
-          Brewery.find(params[:id]).destroy
-          redirect_to breweries_path
-    end
-
       private
 
       def brewery_params
