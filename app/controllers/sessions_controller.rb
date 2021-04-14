@@ -19,21 +19,27 @@ class SessionsController < ApplicationController
     end
   
   
-    # def create_with_google
-    #   user = User.find_or_create_by(username: ) do |u|
-    #     u.password = 'password'
-    #   end
-    #   if user.save
-    #     session[:user_id] = user.id
-    #     redirect_to breweries_path
-    #   else
-    #     redirect_to '/signup'
-    #   end
-    # end
+    def create_with_google
+      # user = User.find_or_create_by(username: ) do |u|
+      #   u.password = 'password'
+      # end
+      # if user.save
+      #   session[:user_id] = user.id
+      #   redirect_to breweries_path
+      # else
+      #   redirect_to '/signup'
+      # end
+    end
   
     def destroy
       session.clear
       redirect_to '/signup'
     end
+
+    private
+
+    # def google_auth
+    #   self.require.env['omniauth.auth']
+    # end
   
   end
