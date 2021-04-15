@@ -1,0 +1,7 @@
+<%@breweries.each do |brewery|%>
+    <li>
+        <%=link_to(brewery.name, brewery_path(brewery))%>
+    </li>
+<%end%>
+<br><br><br><br>
+<%=link_to "Add a Brewery", new_brewery_path%>

@@ -4,7 +4,12 @@ class BreweriesController < ApplicationController
     layout "application"
 
     def index
-        @breweries = Brewery.all
+      @breweries = Brewery.all
+    end
+
+    def beareries 
+      @breweries = Brewery.has_bears
+      render :beareries
     end
 
     def show

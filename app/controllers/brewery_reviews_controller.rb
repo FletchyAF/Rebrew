@@ -22,7 +22,7 @@ class BreweryReviewsController < ApplicationController
         if @breweryReview.save
             redirect_to brewery_review_path(@breweryReview)
         else
-            redirect_to new_brewery_brewery_review_path
+            render :new
         end
     end
 

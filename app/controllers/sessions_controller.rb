@@ -20,7 +20,6 @@ class SessionsController < ApplicationController
   
   
     def create_with_google
-      # binding.pry
       user = User.find_or_create_by(uid: google_auth['uid'], provider: google_auth['provider']) do |user|
        user.username = google_auth['info']['email'] 
        user.password = SecureRandom.hex(16)
