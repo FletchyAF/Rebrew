@@ -20,15 +20,18 @@ class SessionsController < ApplicationController
   
   
     def create_with_google
-      # user = User.find_or_create_by(username: ) do |u|
-      #   u.password = 'password'
-      # end
-      # if user.save
-      #   session[:user_id] = user.id
-      #   redirect_to breweries_path
-      # else
-      #   redirect_to '/signup'
-      # end
+      # binding.pry
+      user = User.find_or_create_by(uid: google_auth['uid'], provider: google_auth['provider']) do |user|
+       user.username = google_auth['info']['email'] 
+       user.password = SecureRandom.hex(16)
+      end
+
+      if user.valid?
+        session[:user_id] = user.id
+        redirect_to breweries_path
+      else
+        redirect_to '/signup'
+      end
     end
   
     def destroy
@@ -38,8 +41,8 @@ class SessionsController < ApplicationController
 
     private
 
-    # def google_auth
-    #   self.require.env['omniauth.auth']
-    # end
+    def google_auth
+      request.env['omniauth.auth']
+    end
   
   end
