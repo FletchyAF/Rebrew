@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
     def new
       @errors = []
+      @user = User.new
     end
   
     def create
@@ -10,14 +11,13 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to breweries_path
       elsif @user
-        @errors = ["Invalid Password"]
+        flash[:message] = "Invalid Password"
         render :new
       else
-        @errors = ["Invalid Username"]
+        flash[:message] = "Invalid Username"
         render :new
       end
     end
-  
   
     def create_with_google
       user = User.find_or_create_by(uid: google_auth['uid'], provider: google_auth['provider']) do |user|

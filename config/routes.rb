@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   post '/logout', to: "sessions#destroy"
   patch '/breweries/:brewery_id/brewery_reviews/', to: "brewery_reviews#update"
-  get "/auth/:provider/callback", to: "sessions#create_with_google"
+  get "/auth/google_oauth2/callback", to: "sessions#create_with_google"
   get "/beareries", to: "breweries#beareries"
 end
