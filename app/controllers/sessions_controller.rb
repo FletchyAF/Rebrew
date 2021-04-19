@@ -20,13 +20,13 @@ class SessionsController < ApplicationController
     end
   
     def create_with_google
-      user = User.find_or_create_by(uid: google_auth['uid'], provider: google_auth['provider']) do |user|
+      @user = User.find_or_create_by(uid: google_auth['uid'], provider: google_auth['provider']) do |user|
        user.username = google_auth['info']['email'] 
        user.password = SecureRandom.hex(16)
       end
 
-      if user.valid?
-        session[:user_id] = user.id
+      if @user.valid?
+        session[:user_id] = @user.id
         redirect_to breweries_path
       else
         redirect_to '/signup'
