@@ -4,6 +4,8 @@
     <%=f.text_field :title %><br>
     <%=f.label("Review Content:") %><br>
     <%=f.text_area :content, :cols => 50, :rows => 10 %><br>
-    <%=f.hidden_field :id %>
+    <%=f.fields_for :breweries do |brew|
+      <%=brew.hidden_field :brewery_id %>
+    <%end%>
     <%=f.submit "Submit"%>
   <%end%>
