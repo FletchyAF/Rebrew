@@ -4,7 +4,12 @@ class BreweriesController < ApplicationController
     layout "application"
 
     def index
-      @breweries = Brewery.all
+      # binding.pry
+      if params[:search]
+        @breweries = Brewery.search(params)
+      else   
+        @breweries = Brewery.all
+      end
     end
 
     def beareries 
