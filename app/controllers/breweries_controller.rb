@@ -29,9 +29,6 @@ class BreweriesController < ApplicationController
         end
       end
 
-      def edit 
-      end
-
       private
 
       def brewery_params
