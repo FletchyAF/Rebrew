@@ -1,6 +1,5 @@
 class BreweryReviewsController < ApplicationController
     before_action :require_login
-    helper_method :current_user
     layout "application"
 
     def index
@@ -12,13 +11,14 @@ class BreweryReviewsController < ApplicationController
     end
 
     def new
-        @breweryReview = BreweryReview.new
+        @brewery = Brewery.find(params[:brewery_id])
+        @breweryReview = @brewery.brewery_reviews.build
     end
 
     def create
         @breweryReview = BreweryReview.new(brewery_review_params)
-        @breweryReview.brewery_id = params[:brewery_id]
         @breweryReview.user = current_user
+
         if @breweryReview.save
             redirect_to brewery_review_path(@breweryReview)
         else
@@ -36,7 +36,7 @@ class BreweryReviewsController < ApplicationController
     end
 
     def update
-        @breweryReview = BreweryReview.find(params['brewery_review'][:id])
+        @breweryReview = BreweryReview.find(params[:id])
         if @breweryReview.update(brewery_review_params)
             redirect_to brewery_review_path(@breweryReview)
         else
@@ -57,7 +57,7 @@ class BreweryReviewsController < ApplicationController
     private
 
     def brewery_review_params
-        params.require(:brewery_review).permit(:title, :content, :id)
+        params.require(:brewery_review).permit(:title, :content, :id, :brewery_id)
     end
 
 end
